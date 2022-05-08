@@ -29,9 +29,6 @@
     <script src="<?=$baseUrl?>assets/plugins/p-scroll/pscroll.js"></script>
     <script src="<?=$baseUrl?>assets/plugins/p-scroll/pscroll-1.js"></script>
 
-    <!-- Color Theme js -->
-    <script src="<?=$baseUrl?>assets/js/themeColors.js"></script>
-
     <!-- Sticky js -->
     <script src="<?=$baseUrl?>assets/js/sticky.js"></script>
 
