@@ -13,7 +13,7 @@ class Router
         $this->splitUrl();
 
         if (! $this->urlController) {
-            $page = new \App\Controllers\Home();
+            $page = new \App\Controllers\Admin();
             $page->index();
         } elseif (file_exists(APP.'Controllers/'.ucfirst($this->urlController).'.php')) {
             $controller          = '\\App\\Controllers\\'.ucfirst($this->urlController);
