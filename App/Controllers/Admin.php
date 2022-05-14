@@ -16,7 +16,7 @@ class Admin
         if(isset($_GET['url']) != 'admin'){
 
             $views = ['admin/index'];
-            $args  = ['title' => 'Home'];
+            $args  = ['title' => 'Inicio'];
             $header = 'templates/admin/header';
             $footer = 'templates/admin/footer';
             View::render($views, $args, $header, $footer);
