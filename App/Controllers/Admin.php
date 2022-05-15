@@ -13,13 +13,19 @@ class Admin
     
     public function index()
     {
-        if(isset($_GET['url']) != 'admin'){
+        if(isset($_GET['url']) != 'admin' && isset($_SESSION['admin'])){
 
             $views = ['admin/index'];
             $args  = ['title' => 'Inicio'];
             $header = 'templates/admin/header';
             $footer = 'templates/admin/footer';
             View::render($views, $args, $header, $footer);
+
+        }else if(!isset($_SESSION['admin'])){
+
+            $views = ['admin/login'];
+            $args  = ['title' => 'Inicia sesión'];
+            View::render($views, $args, $header = null, $footer = null);
 
         }else{
 

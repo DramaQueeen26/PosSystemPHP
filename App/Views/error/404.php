@@ -19,15 +19,12 @@
 
     <!-- STYLE CSS -->
     <link href="<?=$baseUrl?>assets/css/style.css" rel="stylesheet" />
-    <link href="<?=$baseUrl?>assets/css/dark-style.css" rel="stylesheet" />
 
     <!--- FONT-ICONS CSS -->
     <link href="<?=$baseUrl?>assets/css/icons.css" rel="stylesheet" />
-    <style>
-        .login-img{
-            background-color: #6c5ffc !important;
-        }
-    </style>
+
+    <!-- COLOR SKIN CSS -->
+    <link id="theme" rel="stylesheet" type="text/css" media="all" href="<?=$baseUrl?>assets/css/color.css" />
 </head>
 
 <body class="">
