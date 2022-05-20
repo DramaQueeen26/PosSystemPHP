@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Core\View;
 use Core\Util;
+use App\Controllers\UsersController;
 
 class Admin
 {
@@ -13,7 +14,7 @@ class Admin
     
     public function index()
     {
-        if(isset($_GET['url']) != 'admin' && isset($_SESSION['admin'])){
+        if(isset($_GET['url']) != 'admin' && isset($_SESSION['session']) == 'admin'){
 
             $views = ['admin/index'];
             $args  = ['title' => 'Inicio'];
@@ -21,11 +22,20 @@ class Admin
             $footer = 'templates/admin/footer';
             View::render($views, $args, $header, $footer);
 
-        }else if(!isset($_SESSION['admin'])){
+        }else if(isset($_GET['url']) != 'admin' && !isset($_SESSION['session'])){
 
-            $views = ['admin/login'];
-            $args  = ['title' => 'Inicia sesión'];
-            View::render($views, $args, $header = null, $footer = null);
+            if(isset($_POST['username'])){
+
+                $login = new UsersController();
+                echo $login->loginController();
+
+            }else{
+
+                $views = ['templates/login'];
+                $args  = ['title' => 'Inicia sesión'];
+                View::render($views, $args, $header = null, $footer = null);
+            
+            }
 
         }else{
 
@@ -35,94 +45,191 @@ class Admin
         }
     }
 
+    public function logout(){
+        
+        $baseUrl = new Util();
+        session_destroy();
+        echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+    }
+
     public function business()
     {
-        $views = ['admin/business'];
-        $args  = ['title' => 'Negocios'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/business'];
+            $args  = ['title' => 'Negocios'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function add_business()
     {
-        $views = ['admin/add_business'];
-        $args  = ['title' => 'Agregar negocio'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/add_business'];
+            $args  = ['title' => 'Agregar negocio'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function products()
     {
-        $views = ['admin/products'];
-        $args  = ['title' => 'Productos'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/products'];
+            $args  = ['title' => 'Productos'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function categories()
     {
-        $views = ['admin/categories'];
-        $args  = ['title' => 'Categorías'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/categories'];
+            $args  = ['title' => 'Categorías'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function sales()
     {
-        $views = ['admin/sales'];
-        $args  = ['title' => 'Ventas'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/sales'];
+            $args  = ['title' => 'Ventas'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function new_sale()
     {
-        $views = ['admin/new_sale'];
-        $args  = ['title' => 'Nueva venta'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
-    }
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/new_sale'];
+            $args  = ['title' => 'Nueva venta'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }    }
 
     public function reports()
     {
-        $views = ['admin/reports'];
-        $args  = ['title' => 'Reportes'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/reports'];
+            $args  = ['title' => 'Reportes'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function customers()
     {
-        $views = ['admin/customers'];
-        $args  = ['title' => 'Clientes'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/customers'];
+            $args  = ['title' => 'Clientes'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function users()
     {
-        $views = ['admin/users'];
-        $args  = ['title' => 'Usuarios'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/users'];
+            $args  = ['title' => 'Usuarios'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
     public function settings()
     {
-        $views = ['admin/settings'];
-        $args  = ['title' => 'Configuración del sistema'];
-        $header = 'templates/admin/header';
-        $footer = 'templates/admin/footer';
-        View::render($views, $args, $header, $footer);
+        if(isset($_SESSION['session']) == 'admin'){
+        
+            $views = ['admin/settings'];
+            $args  = ['title' => 'Configuración del sistema'];
+            $header = 'templates/admin/header';
+            $footer = 'templates/admin/footer';
+            View::render($views, $args, $header, $footer);
+        
+        }else{
+
+            $baseUrl = new Util();
+            echo '<script> window.location.href="' . $baseUrl->baseUrl() . '"</script>';
+
+        }
     }
 
 }

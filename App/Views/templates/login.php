@@ -7,9 +7,6 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Sash – Bootstrap 5  Admin & Dashboard Template">
-    <meta name="author" content="Spruko Technologies Private Limited">
-    <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="<?=$baseUrl?>assets/images/brand/favicon.ico" />
@@ -55,9 +52,9 @@
 
                 <div class="container-login100">
                     <div class="wrap-login100 p-6">
-                        <form class="login100-form validate-form">
+                        <div>
                             <span class="login100-form-title pb-5">
-                                Inicia sesión
+                                Ingresa al sistema
                             </span>
                             <div class="panel panel-primary">
                                 <div class="tab-menu-heading">
@@ -72,34 +69,37 @@
                                 <div class="panel-body tabs-menu-body p-0 pt-5">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab5">
-                                            <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Correo electrónico" name="email">
-                                            </div>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Contraseña" name="password">
-                                            </div>
-                                            <div class="container-login100-form-btn">
-                                                <a href="index.html" class="login100-form-btn btn-primary">
+                                            <form method="post" action="<?=$baseUrl?>"> 
+                                                <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
+                                                    <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                                    </a>
+                                                    <input class="input100 border-start-0 form-control ms-0" type="text" placeholder="Nombre de usuario" name="username" required>
+                                                </div>
+                                                <div class="wrap-input100 validate-input input-group" id="Password-toggle">
+                                                    <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
+                                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                                    </a>
+                                                    <input class="input100 border-start-0 form-control ms-0" type="password" placeholder="Contraseña" name="password" required>
+                                                </div>
+                                                <div class="container-login100-form-btn">
+                                                    <button type="submit" class="login100-form-btn btn-primary">
                                                         Continuar
-                                                </a>
-                                            </div>
-                                            <label class="login-social-icon"><span></span></label>
+                                                    </button>
+                                                </div>
+                                                <label class="login-social-icon"><span></span></label>
+                                                <div class="response"></div>
+                                            </form>
                                         </div>
                                         <div class="tab-pane" id="tab6">
                                             <div id="mobile-num" class="wrap-input100 validate-input input-group mb-4">
                                                 <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                                 </a>
-                                                <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Correo electrónico" name="email">
+                                                <input class="input100 border-start-0 form-control ms-0" type="email" placeholder="Correo electrónico" name="email" required>
                                             </div>
                                             <div class="container-login100-form-btn ">
-                                                <a href="index.html" class="login100-form-btn btn-primary">
+                                                <a href="#" class="login100-form-btn btn-primary">
                                                         Continuar
                                                 </a>
                                                 <label class="login-social-icon"><span></span></label>
@@ -108,8 +108,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <!-- CONTAINER CLOSED -->
@@ -136,11 +135,13 @@
     <!-- Perfect SCROLLBAR JS-->
     <script src="<?=$baseUrl?>assets/plugins/p-scroll/perfect-scrollbar.js"></script>
 
-    <!-- Color Theme js -->
-    <script src="<?=$baseUrl?>assets/js/themeColors.js"></script>
+    <!-- Sweet Alert -->
+    <script src="<?=$baseUrl?>assets/plugins/sweet-alert/sweetalert.min.js"></script>
+
 
     <!-- CUSTOM JS -->
     <script src="<?=$baseUrl?>assets/js/custom.js"></script>
+    <script src="<?=$baseUrl?>assets/js/ajax.js"></script>
 
 </body>
 
