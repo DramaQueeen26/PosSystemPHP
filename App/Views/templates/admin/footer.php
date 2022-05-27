@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-md-12 col-sm-12 text-center">
-                        Copyright © 2022 <a href="<?=$baseUrl?>">POS System</a>. Developer with <span class="fa fa-heart text-danger"></span> by <a href="https://github.com/DramaQueeen26/pos-system-php" target="_blank"> DramaQueeen26 </a> All rights reserved.
+                        Copyright © 2022 <a href="<?=$baseUrl?>">POS System</a>. Developed with <span class="fa fa-heart text-danger"></span> by <a href="https://github.com/DramaQueeen26/pos-system-php" target="_blank"> DramaQueeen26 </a> All rights reserved.
                     </div>
                 </div>
             </div>
@@ -34,6 +34,12 @@
 
     <!-- CUSTOM JS -->
     <script src="<?=$baseUrl?>assets/js/custom.js"></script>
+
+    <!-- DATA TABLE-->
+    <script src="<?=$baseUrl?>assets/plugins/datatable/datatables.min.js"></script>
+    <script src="<?=$baseUrl?>assets/plugins/datatable/dataTables.responsive.min.js"></script>
+    <script src="<?=$baseUrl?>assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+    <script src="<?=$baseUrl?>assets/js/table-data.js "></script>
 
 </body>
 </html>
