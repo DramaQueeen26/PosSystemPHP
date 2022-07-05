@@ -14,6 +14,7 @@ class Admin
     
     public function index()
     {
+        //Si hay una sesión iniciada llamar la página de inicio
         if(isset($_GET['url']) != 'admin' && isset($_SESSION['session']) == 'admin'){
 
             $views = ['admin/index'];
@@ -22,13 +23,16 @@ class Admin
             $footer = 'templates/admin/footer';
             View::render($views, $args, $header, $footer);
 
+        // Si no hay una sesión iniciada
         }else if(isset($_GET['url']) != 'admin' && !isset($_SESSION['session'])){
 
+            // Si se envía el form para iniciar sesión
             if(isset($_POST['username'])){
 
                 $login = new UsersController();
                 echo $login->loginController();
 
+            // Si no se envía que muestra la página de login
             }else{
 
                 $views = ['templates/login'];
@@ -37,6 +41,7 @@ class Admin
             
             }
 
+        // Redirigir a inicio si se coloca en la URL admin/index
         }else{
 
             $baseUrl = new Util();
@@ -45,6 +50,7 @@ class Admin
         }
     }
 
+    // Cerrar sesión
     public function logout(){
         
         $baseUrl = new Util();
@@ -198,14 +204,27 @@ class Admin
 
     public function users()
     {
+        // Si hay sesión iniciada
         if(isset($_SESSION['session']) == 'admin'){
         
-            $views = ['admin/users'];
-            $args  = ['title' => 'Usuarios'];
-            $header = 'templates/admin/header';
-            $footer = 'templates/admin/footer';
-            View::render($views, $args, $header, $footer);
-        
+            // Si se envían datos en el form llamar a la función para agregar un nuevo usuario
+            if(isset($_POST['username'])){
+                
+                $newUser = new UsersController();
+                echo $newUser->newUserController();
+            
+            // Si no se envían datos en el form
+            }else{
+
+                $views = ['admin/users'];
+                $args  = ['title' => 'Usuarios'];
+                $header = 'templates/admin/header';
+                $footer = 'templates/admin/footer';
+                View::render($views, $args, $header, $footer);
+
+            }
+
+        // Si no hay sesión iniciada redirigir a la página de inicio
         }else{
 
             $baseUrl = new Util();

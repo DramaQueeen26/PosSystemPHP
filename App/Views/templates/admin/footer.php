@@ -32,14 +32,20 @@
     <!-- Sticky js -->
     <script src="<?=$baseUrl?>assets/js/sticky.js"></script>
 
-    <!-- CUSTOM JS -->
-    <script src="<?=$baseUrl?>assets/js/custom.js"></script>
-
     <!-- DATA TABLE-->
     <script src="<?=$baseUrl?>assets/plugins/datatable/datatables.min.js"></script>
     <script src="<?=$baseUrl?>assets/plugins/datatable/dataTables.responsive.min.js"></script>
     <script src="<?=$baseUrl?>assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
-    <script src="<?=$baseUrl?>assets/js/table-data.js "></script>
+    <script src="<?=$baseUrl?>assets/js/table-data.js"></script>
+
+    <!-- AJAX -->
+    <script src="<?=$baseUrl?>assets/js/ajax.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="<?=$baseUrl?>assets/plugins/sweet-alert/sweetalert.min.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="<?=$baseUrl?>assets/js/custom.js"></script>
 
 </body>
 </html>

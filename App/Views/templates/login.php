@@ -138,7 +138,6 @@
     <!-- Sweet Alert -->
     <script src="<?=$baseUrl?>assets/plugins/sweet-alert/sweetalert.min.js"></script>
 
-
     <!-- CUSTOM JS -->
     <script src="<?=$baseUrl?>assets/js/custom.js"></script>
     <script src="<?=$baseUrl?>assets/js/ajax.js"></script>

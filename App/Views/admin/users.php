@@ -130,10 +130,12 @@
                     <form method="post" action="<?=$baseUrl?>admin/users/" enctype="multipart/form-data">
                         
                         <div class="modal-header">
-                            <h6 class="modal-title">Agregar usuario</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                            <h6 class="modal-title">Agregar usuario</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                         </div>
                         
                         <div class="modal-body">
+
+                            <div class="response"></div>
                             
                             <div class="input-group w-100 p-2">
                                 <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
@@ -161,19 +163,22 @@
                                     <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                         <i class="fa fa-users" aria-hidden="true"></i>
                                     </a>
-                                    <select class="form-control input-lg" name="role">
+                                    <select class="form-control input-lg" name="role" required>
                                         <option value="">Seleccionar el perfil</option>
                                         <option value="admin">Administrador</option>
-                                        <option value="especial">Especial</option>
-                                        <option value="vendedor">Vendedor</option>
+                                        <option value="special">Especial</option>
+                                        <option value="seller">Vendedor</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="photo" class="form-label mt-0">Subir foto</label>
+                                <label for="photo" class="form-label mt-0">Seleccionar foto</label>
                                 <input class="form-control" type="file" id="photo" name="photo">
+                                <div class="d-flex align-items-center justify-content-around">
                                 <span class="badge text-info mt-2">Tamaño máximo: 3MB</span>
+                                <img src="<?=$baseUrl?>assets/images/users/anonymous.png" class="img-thumbnail mt-2 img" width="100px">
+                                </div>
                             </div>
 
                         </div>
@@ -184,7 +189,6 @@
                         </div>
                     
                     </form>
-
                 </div>
             </div>
         </div>
