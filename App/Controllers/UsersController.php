@@ -62,7 +62,7 @@ class UsersController extends UsersModel
 					}else{
 
 						$alert = [
-			                "alert"=>"simple",
+			                "alert"=>"reload",
 			                "type"=>"success",
 			                "title"=>"Bienvenido al sistema",
 			                "text"=>$username
@@ -94,6 +94,7 @@ class UsersController extends UsersModel
 		$username = $util->cleanString($_POST['username'], 'string');
 		$password = $util->cleanString($_POST['password'], 'string');
 		$role = $_POST['role'];
+		$save_route = '';
 
 		if(empty($name) || empty($username) || empty($password)){
 
@@ -142,11 +143,66 @@ class UsersController extends UsersModel
 
 					}else{
 
+						if(isset($_FILES['photo']['tmp_name'])){
+							
+							list($width, $height) = getimagesize($_FILES['photo']['tmp_name']);
+							
+							$newWidth = 500;
+							$newHeight = 500;
+							
+							$dir = "../public/assets/images/users/".$username;
+							
+							if(!mkdir($dir, 0755)){
+								$alert = [
+								"alert"=>"simple",
+								"type"=>"error",
+								"title"=>"Oops",
+								"text"=>'Ha ocurrido un error creando el directorio'
+								];
+							}
+							
+							$rand = mt_rand(100, 999);
+							
+							if($_FILES['photo']['type'] == 'image/jpeg' || $_FILES['photo']['type'] == 'image/jpg'){
+								
+								$route = "../public/assets/images/users/".$username."/".$rand.".jpeg";
+								$save_route = $util->baseUrl()."assets/images/users/".$username."/".$rand.".jpeg";
+								
+								//REDIMENCIONAR LA FOTO PARA OCUPAR MENOS ESPACIO
+								$dst = imagecreatetruecolor($newWidth, $newHeight);
+								$src = imagecreatefromjpeg($_FILES['photo']['tmp_name']);
+								
+								imagecopyresized($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+								
+								//GURADAR LA FOTO EN LA RUTA
+								imagejpeg($dst, $route);
+								
+							}
+							
+							if($_FILES['photo']['type'] == 'image/png'){
+								
+								$route = "../public/assets/images/users/".$username."/".$rand.".png";
+								$save_route = $util->baseUrl()."assets/images/users/".$username."/".$rand.".png";
+								
+								//REDIMENCIONAR LA FOTO PARA OCUPAR MENOS ESPACIO
+								$dst = imagecreatetruecolor($newWidth, $newHeight);
+								$src = imagecreatefrompng($_FILES['photo']['tmp_name']);
+								
+								imagecopyresized($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+								
+								//GURADAR LA FOTO EN LA RUTA
+								imagepng($dst, $route);
+								
+							}
+							
+						}
+						
 						$data = [
 							"name" => $name,
 							"username" => $username,
 							"password" => $password,
-							"role" => $role
+							"role" => $role,
+							"photo" => $save_route
 						];
 
 						$save = UsersModel::newUserModel($data);

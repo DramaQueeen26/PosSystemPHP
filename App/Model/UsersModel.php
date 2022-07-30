@@ -17,12 +17,13 @@ class UsersModel extends Model
 
 	protected function newUserModel($data)
 	{
-		$query = 'INSERT INTO users(name, username, password, role) VALUES (:name, :username, :password, :role)';
+		$query = 'INSERT INTO users(name, username, password, role, photo) VALUES (:name, :username, :password, :role, :photo)';
         $sql = $this->db->prepare($query);
         $sql->bindParam(':name', $data['name']);
         $sql->bindParam(':username', $data['username']);
         $sql->bindParam(':password', $data['password']);
         $sql->bindParam(':role', $data['role']);
+		$sql->bindParam(':photo', $data['photo']);
         $sql->execute();
         return $sql;
 	}

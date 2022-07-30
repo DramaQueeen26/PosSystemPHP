@@ -75,7 +75,7 @@ class Util
                         text: '".$data['text']."',
                         confirmButtonText: 'OK'
                         }).then(function(){
-                                location.reload();
+                            location.reload();
                         });
                 </script>
             ";
