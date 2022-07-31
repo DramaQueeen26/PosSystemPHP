@@ -14,6 +14,14 @@ class UsersModel extends Model
         $sql->execute();
         return $sql->fetch();
 	}
+	
+	protected function showUsersModel()
+	{
+		$query = 'SELECT * FROM users';
+        $sql = $this->db->prepare($query);
+        $sql->execute();
+        return $sql->fetchAll();
+	}
 
 	protected function newUserModel($data)
 	{

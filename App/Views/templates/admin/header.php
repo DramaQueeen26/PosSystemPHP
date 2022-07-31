@@ -31,7 +31,7 @@
     <!-- GLOBAL-LOADER -->
     <div id="global-loader">
         <img src="<?= $baseUrl?>assets/images/loader.svg" class="loader-img" alt="Loader">
-    </div>
+    </div>-->
     <!-- /GLOBAL-LOADER -->
 
     <!-- PAGE -->

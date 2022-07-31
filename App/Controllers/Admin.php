@@ -215,9 +215,15 @@ class Admin
             
             // Si no se envían datos en el form
             }else{
-
+				
+				$showUsers = new UsersController();
+				$showUsers = $showUsers->showUsersController();
+				
                 $views = ['admin/users'];
-                $args  = ['title' => 'Usuarios'];
+                $args  = [
+					'title' => 'Usuarios',
+					'rows' => $showUsers
+					];
                 $header = 'templates/admin/header';
                 $footer = 'templates/admin/footer';
                 View::render($views, $args, $header, $footer);

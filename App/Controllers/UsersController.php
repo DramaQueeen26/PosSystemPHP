@@ -74,9 +74,7 @@ class UsersController extends UsersModel
 						$_SESSION['username'] = $data->username;
 						$_SESSION['session'] = $data->role;
 						$_SESSION['photo'] = $data->photo;
-
-	            		//echo '<script> window.location.href="' . $util->baseUrl() . '"</script>';
-
+						
 					}
 
 				}
@@ -87,6 +85,14 @@ class UsersController extends UsersModel
 
 		return $util->sweetAlert($alert);
 
+	}
+	
+	//Mostrar los usuarios
+	public function showUsersController()
+	{
+		$showUsers = UsersModel::showUsersModel();
+		
+		return $showUsers;
 	}
 
 	// Validaciones para agregar un nuevo usuario
@@ -216,7 +222,7 @@ class UsersController extends UsersModel
 						if($save->rowCount() > 0){
 
 							$alert = [
-				                "alert"=>"simple",
+				                "alert"=>"reload",
 				                "type"=>"success",
 				                "title"=>"!",
 				                "text"=>'El usuario se ha guardado correctamente'

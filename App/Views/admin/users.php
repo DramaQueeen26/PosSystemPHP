@@ -41,20 +41,48 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Administrador</td>
-                                                    <td>Admin</td>
-                                                    <td class="text-center"><img src="<?=$baseUrl?>assets/images/users/anonymous.png" class="avatar bradius" width="20px"></td>
-                                                    <td>Administrador</td>
-                                                    <td class="text-center">    
-                                                        <div class="mt-sm-1 d-block">
-                                                            <span class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Activado</span>
-                                                        </div>
-                                                    </td>
-                                                    <td>2018-03-12 12:23:20</td>
-                                                    <td>
-                                                        <div class="btn-list"> 
+												<?php foreach ($rows as $row):?>
+												<tr>
+													<td><?=$row->id?></td>
+                                                    <td><?=$row->name?></td>
+                                                    <td><?=$row->username?></td>
+													<td class="text-center">
+													<?php 
+														if($row->photo != ''){
+															echo '<img src="'.$row->photo.'" class="avatar bradius" width="20px">';
+														}else{
+															echo '<img src="'.$baseUrl.'assets/images/users/anonymous.png" class="avatar bradius" width="20px">';
+														}
+													?>
+													</td>
+													<td>
+													<?php 
+														if($row->role == 'admin'){
+															echo "Administrador";
+														}
+														if($row->role == 'special'){
+															echo "Especial";
+														}
+														if($row->role == 'seller'){
+															echo "Vendedor";
+														}
+													?>
+													</td>
+													<td class="text-center">
+														<div class="mt-sm-1 d-block">
+														<?php 
+															if($row->status == 1){
+																echo '<span class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Activado</span>';
+															}
+															if($row->status == 0){
+																echo '<span class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Desactivado</span>';
+															}
+														?>
+                                                        </div>	
+													</td>
+													<td><?=$row->last_login?></td>
+													<td>
+														<div class="btn-list"> 
                                                             <button id="bEdit" type="button" class="btn btn-sm btn-primary" style="">
                                                                 <span class="fe fe-edit"> </span>
                                                             </button>
@@ -62,54 +90,9 @@
                                                                 <span class="fe fe-trash-2"> </span>
                                                             </button>
                                                         </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Administrador</td>
-                                                    <td>Admin</td>
-                                                    <td><img src="<?=$baseUrl?>assets/images/users/anonymous.png" class="avatar bradius" width="20px"></td>
-                                                    <td>Administrador</td>
-                                                    <td>    
-                                                        <div class="mt-sm-1 d-block">
-                                                            <span class="badge bg-success-transparent rounded-pill text-success p-2 px-3">Activado</span>
-                                                        </div>
-                                                    </td>
-                                                    <td>2018-03-12 12:23:20</td>
-                                                    <td>
-                                                        <div class="btn-list"> 
-                                                            <button id="bEdit" type="button" class="btn btn-sm btn-primary" style="">
-                                                                <span class="fe fe-edit"> </span>
-                                                            </button>
-                                                            <button id="bDel" type="button" class="btn  btn-sm btn-danger" style="">
-                                                                <span class="fe fe-trash-2"> </span>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Administrador</td>
-                                                    <td>Admin</td>
-                                                    <td><img src="<?=$baseUrl?>assets/images/users/anonymous.png" class="avatar bradius" width="20px"></td>
-                                                    <td>Administrador</td>
-                                                    <td>    
-                                                        <div class="mt-sm-1 d-block">
-                                                            <span class="badge bg-danger-transparent rounded-pill text-danger p-2 px-3">Desactivado</span>
-                                                        </div>
-                                                    </td>
-                                                    <td>2018-03-12 12:23:20</td>
-                                                    <td>
-                                                        <div class="btn-list"> 
-                                                            <button id="bEdit" type="button" class="btn btn-sm btn-primary" style="">
-                                                                <span class="fe fe-edit"> </span>
-                                                            </button>
-                                                            <button id="bDel" type="button" class="btn  btn-sm btn-danger" style="">
-                                                                <span class="fe fe-trash-2"> </span>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+													</td>
+												</tr>
+												<?php endforeach?>
                                             </tbody>
                                         </table>
                                     </div>
