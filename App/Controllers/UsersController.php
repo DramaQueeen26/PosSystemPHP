@@ -69,11 +69,13 @@ class UsersController extends UsersModel
 			                "title"=>"Bienvenido al sistema",
 			                "text"=>$username
 	            		];
-
-						$_SESSION['session'] = $data->role;
+						
+						$_SESSION['name'] = $data->name;
 						$_SESSION['username'] = $data->username;
+						$_SESSION['session'] = $data->role;
+						$_SESSION['photo'] = $data->photo;
 
-	            		echo '<script> window.location.href="' . $util->baseUrl() . '"</script>';
+	            		//echo '<script> window.location.href="' . $util->baseUrl() . '"</script>';
 
 					}
 

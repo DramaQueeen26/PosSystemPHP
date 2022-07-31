@@ -73,10 +73,11 @@ class Util
                         type: '".$data['type']."',
                         title: '".$data['title']."',
                         text: '".$data['text']."',
-                        confirmButtonText: 'OK'
-                        }).then(function(){
-                            location.reload();
+						timer: 1200,
+						timerProgressBar: true,
+                        showConfirmButton: false
                         });
+					setTimeout('document.location.reload()', 1200);
                 </script>
             ";
 
