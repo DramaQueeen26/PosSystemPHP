@@ -49,9 +49,9 @@
 													<td class="text-center">
 													<?php 
 														if($row->photo != ''){
-															echo '<img src="'.$row->photo.'" class="avatar bradius" width="20px">';
+															echo '<img src="'.$row->photo.'" class="avatar bradius  profile-user brround cover-image">';
 														}else{
-															echo '<img src="'.$baseUrl.'assets/images/users/anonymous.png" class="avatar bradius" width="20px">';
+															echo '<img src="'.$baseUrl.'assets/images/users/anonymous.png" class="avatar bradius  profile-user brround cover-image">';
 														}
 													?>
 													</td>
