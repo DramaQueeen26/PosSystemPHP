@@ -77,7 +77,7 @@ class Util
 						timerProgressBar: true,
                         showConfirmButton: false
                         });
-					setTimeout('document.location.reload()', 1200);
+					setTimeout('document.location.reload()', 1500);
                 </script>
             ";
 

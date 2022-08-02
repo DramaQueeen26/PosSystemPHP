@@ -66,8 +66,8 @@ class UsersController extends UsersModel
 						$alert = [
 			                "alert"=>"reload",
 			                "type"=>"success",
-			                "title"=>"Bienvenido al sistema",
-			                "text"=>$username
+			                "title"=>"Bienvenido/a al sistema",
+			                "text"=>$data->name
 	            		];
 						
 						$_SESSION['name'] = $data->name;
